@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
         return 1;
     }
     
-    std::string config = JSONTools::ReadFile("BotConfig.txt");
+    std::string config = JSONTools::ReadFile("/Users/chrik/s2client-api/commandcenter/bin/BotConfig.txt");
     if (config.length() == 0)
     {
         std::cerr << "Config file could not be found, and is required for starting the bot\n";
@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
         exit(-1);
     }
 
-    std::ifstream file("BotConfig.txt");
+    std::ifstream file("/Users/chrik/s2client-api/commandcenter/bin/BotConfig.txt");
     json j;
     file >> j;
 
@@ -61,7 +61,6 @@ int main(int argc, char* argv[])
     // Add the custom bot, it will control the players.
     CCBot bot;
 
-    
     // WARNING: Bot logic has not been thorougly tested on step sizes > 1
     //          Setting this = N means the bot's onFrame gets called once every N frames
     //          The bot may crash or do unexpected things if its logic is not called every frame
@@ -77,12 +76,13 @@ int main(int argc, char* argv[])
     coordinator.LaunchStarcraft();
     coordinator.StartGame(mapString);
 
+    
     // Step forward the game simulation.
     while (true) 
     {
         coordinator.Update();
     }
-
+    
     return 0;
 }
 

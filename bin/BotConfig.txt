@@ -8,7 +8,7 @@
 
     "BWAPI" : 
     {
-        "SetLocalSpeed"             : 5,
+        "SetLocalSpeed"             : 2,
         "SetFrameSkip"              : 0,
         "UserInput"                 : true,
         "CompleteMapInformation"    : false
@@ -17,9 +17,9 @@
     "SC2API" :
     {
         "BotRace"                   : "Terran",
-        "EnemyDifficulty"           : 2,
+        "EnemyDifficulty"           : 3,
         "EnemyRace"                 : "Random",
-        "MapFile"                   : "InterloperLE.SC2Map",
+        "MapFile"                   : "AbyssalReefLE.SC2Map",
         "StepSize"                  : 1
     },
         
@@ -56,7 +56,7 @@
     
     "Modules" :
     {
-        "UseAutoObserver"           : false
+        "UseAutoObserver"           : true
     },
     
     "BWAPI Strategy" :
@@ -103,7 +103,7 @@
     "SC2API Strategy" :
     {
         "Protoss"                   : "Protoss_ZealotRush",
-        "Terran"                    : "Terran_MarineRush",
+        "Terran"                    : "Terran_SCV",
         "Zerg"                      : "Zerg_2HatchRoach",
         
         "ScoutHarassEnemy"          : true,
@@ -117,10 +117,17 @@
                 "ScoutCondition"    : [ ["Self", "Pylon"], ">", [ 0 ] ],
                 "AttackCondition"   : [ ["Self", "Zealot"], ">=", [ 8 ] ]
             },
-            "Terran_MarineRush"     : 
+            "Terran_SCV"     : 
             { 
                 "Race"              : "Terran",  
-                "OpeningBuildOrder" : ["SCV", "SCV", "SupplyDepot", "SCV", "SCV", "Barracks", "Barracks", "Barracks", "Barracks", "SupplyDepot", "SupplyDepot", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine"],
+                "OpeningBuildOrder" : ["SCV", "SCV", "SupplyDepot", "SCV", "SCV"],
+                "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 8 ] ]
+            },
+            "Terran_Marine"     : 
+            { 
+                "Race"              : "Terran",  
+                "OpeningBuildOrder" : ["Barracks", "Barracks", "Barracks", "Barracks", "SupplyDepot", "SupplyDepot", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine"],
                 "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
                 "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 8 ] ]
             },

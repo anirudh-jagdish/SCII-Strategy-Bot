@@ -6,7 +6,7 @@ BotConfig::BotConfig()
 {
     ConfigFileFound                     = true;
     ConfigFileParsed                    = true;
-    ConfigFileLocation                  = "BotConfig.txt";
+    ConfigFileLocation                  = "/Users/chrik/s2client-api/commandcenter/bin/BotConfig.txt";
     BotName                             = "UAlbertaBot";
     Authors                             = "Dave Churchill";
     PrintInfoOnStart                    = false;
