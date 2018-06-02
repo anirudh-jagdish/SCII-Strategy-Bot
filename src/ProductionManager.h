@@ -19,6 +19,7 @@ class ProductionManager
     bool    canMakeNow(const Unit & producer, const MetaType & type);
     bool    detectBuildOrderDeadlock();
     void    setBuildOrder(const BuildOrder & buildOrder);
+    void    addToBuildOrder(const BuildOrder & buildOrder);  //Chris Kelly
     void    create(const Unit & producer, BuildOrderItem & item);
     void    manageBuildOrderQueue();
     int     getFreeMinerals();
@@ -32,6 +33,8 @@ public:
 
     void    onStart();
     void    onFrame();
+    void    changeStrat(std::string strat); //Chris Kelly
+    void    addToStrat(std::string strat); //Chris Kelly
     void    onUnitDestroy(const Unit & unit);
     void    drawProductionInformation();
 

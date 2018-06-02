@@ -32,7 +32,16 @@ class StrategyManager
     std::map<std::string, Strategy> m_strategies;
     int                             m_totalGamesPlayed;
     const BuildOrder                m_emptyBuildOrder;
+    //Chris Kelly
 
+    //ADD BOOLEANS HERE
+    bool  m_changedToMarine;
+    bool  m_changedToReaper;
+    bool  m_setRefineries;
+
+    //.................
+
+    //Chris Kelly
     bool  shouldExpandNow() const;
     const UnitPairVector getProtossBuildOrderGoal() const;
     const UnitPairVector getTerranBuildOrderGoal() const;
@@ -52,4 +61,6 @@ public:
     const UnitPairVector getBuildOrderGoal() const;
     const BuildOrder & getOpeningBookBuildOrder() const;
     void readStrategyFile(const std::string & str);
+    const BuildOrder &  changeStrat(std::string name) const; //Chris Kelly
+    void emptyQueue() const; //Chris Kelly
 };

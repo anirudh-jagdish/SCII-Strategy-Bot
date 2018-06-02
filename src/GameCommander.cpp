@@ -103,6 +103,13 @@ bool GameCommander::shouldSendInitialScout()
     return m_bot.Strategy().scoutConditionIsMet();
 }
 
+//Chris Kelly
+ProductionManager & GameCommander::ProMan()
+{
+    return m_productionManager;
+}
+//Chris Kelly
+
 // sets combat units to be passed to CombatCommander
 void GameCommander::setCombatUnits()
 {

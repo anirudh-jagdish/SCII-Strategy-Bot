@@ -17,7 +17,7 @@
     "SC2API" :
     {
         "BotRace"                   : "Terran",
-        "EnemyDifficulty"           : 3,
+        "EnemyDifficulty"           : 7,
         "EnemyRace"                 : "Random",
         "MapFile"                   : "AbyssalReefLE.SC2Map",
         "StepSize"                  : 1
@@ -102,7 +102,7 @@
     
     "SC2API Strategy" :
     {
-        "Protoss"                   : "Protoss_ZealotRush",
+        "Protoss"                   : "Protoss_Probe",
         "Terran"                    : "Terran_SCV",
         "Zerg"                      : "Zerg_2HatchRoach",
         
@@ -110,6 +110,37 @@
         
         "Strategies" :
         {
+            "Protoss_Probe"         :
+            {
+                "Race"              : "Protoss", 
+                "OpeningBuildOrder" : ["Probe"],
+                "ScoutCondition"    : [ ["Self", "Pylon"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Zealot"], ">=", [ 8 ] ]
+            },
+            "Protoss_Pylon"         :
+            {
+                "Race"              : "Protoss", 
+                "OpeningBuildOrder" : ["Pylon"],
+                "ScoutCondition"    : [ ["Self", "Pylon"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Zealot"], ">=", [ 8 ] ]
+            },
+            "Protoss_Gateway"         :
+            {
+                "Race"              : "Protoss", 
+                "OpeningBuildOrder" : ["Gateway"],
+                "ScoutCondition"    : [ ["Self", "Pylon"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Zealot"], ">=", [ 8 ] ]
+            },
+            "Protoss_Zealot"         :
+            {
+                "Race"              : "Protoss", 
+                "OpeningBuildOrder" : ["Zealot"],
+                "ScoutCondition"    : [ ["Self", "Pylon"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Zealot"], ">=", [ 8 ] ]
+            },
+
+
+
             "Protoss_ZealotRush"    : 
             { 
                 "Race"              : "Protoss", 
@@ -120,16 +151,37 @@
             "Terran_SCV"     : 
             { 
                 "Race"              : "Terran",  
-                "OpeningBuildOrder" : ["SCV", "SCV", "SupplyDepot", "SCV", "SCV"],
+                "OpeningBuildOrder" : ["SCV", "SCV", "SupplyDepot", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV", "SCV"],
                 "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
-                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 8 ] ]
+                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 10 ] ]
             },
-            "Terran_Marine"     : 
+            "Terran_Barack_Marine"     : 
             { 
                 "Race"              : "Terran",  
                 "OpeningBuildOrder" : ["Barracks", "Barracks", "Barracks", "Barracks", "SupplyDepot", "SupplyDepot", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine"],
                 "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
-                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 8 ] ]
+                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 10 ] ]
+            },
+            "Terran_Marine"             :
+            {
+                "Race"              : "Terran",  
+                "OpeningBuildOrder" : ["Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine", "Marine"],
+                "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 12 ] ]
+            },
+             "Terran_Refinery"             :
+            {
+                "Race"              : "Terran",  
+                "OpeningBuildOrder" : ["Refinery", "Refinery"],
+                "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Marine"], ">=", [ 12 ] ]
+            },
+            "Terran_Reaper"             :
+            {
+                "Race"              : "Terran",  
+                "OpeningBuildOrder" : ["Reaper", "Reaper" , "Reaper", "Reaper", "Reaper", "Reaper", "Reaper", "Reaper", "Reaper", "Reaper", "Reaper", "Reaper", "Reaper"],
+                "ScoutCondition"    : [ ["Self", "SupplyDepot"], ">", [ 0 ] ],
+                "AttackCondition"   : [ ["Self", "Reaper"], ">=", [ 6 ] ]
             },
             "Zerg_ZerglingRush"     : 
             { 

@@ -24,6 +24,16 @@ Strategy::Strategy(const std::string & name, const CCRace & race, const BuildOrd
 // constructor
 StrategyManager::StrategyManager(CCBot & bot)
     : m_bot(bot)
+    
+    //Chris Kelly
+
+    //GIVE BOOLEANS INITIAL VALUES HERE
+    , m_changedToMarine     (false)
+    , m_changedToReaper     (false)
+    , m_setRefineries       (false)
+    //................................
+
+    //Chris Kelly
 {
 
 }
@@ -35,7 +45,27 @@ void StrategyManager::onStart()
 
 void StrategyManager::onFrame()
 {
+    //Chris Kelly
 
+    //ADD DECISION TREE HERE
+    if( m_bot.UnitInfo().getUnitTypeCount(0, UnitType::GetUnitTypeFromName("SupplyDepot", m_bot)) > 0 && !m_changedToMarine){
+        m_changedToMarine = true;
+        m_bot.GameCom().ProMan().changeStrat("Terran_Barack_Marine");
+    }
+
+    if( m_bot.UnitInfo().getUnitTypeCount(0, UnitType::GetUnitTypeFromName("Marine", m_bot)) > 10 && !m_setRefineries){
+        m_setRefineries = true; 
+        m_bot.GameCom().ProMan().addToStrat("Terran_Refinery");
+    }
+
+    if( m_bot.UnitInfo().getUnitTypeCount(0, UnitType::GetUnitTypeFromName("Refinery", m_bot)) > 2 && !m_changedToReaper){
+        m_changedToReaper = true;
+        m_bot.GameCom().ProMan().changeStrat("Terran_Barack_Reaper");
+    }
+
+    //......................
+
+    //Chris Kelly
 }
 
 const Strategy & StrategyManager::getCurrentStrategy() const
@@ -51,6 +81,24 @@ const BuildOrder & StrategyManager::getOpeningBookBuildOrder() const
 {
     return getCurrentStrategy().m_buildOrder;
 }
+
+//Chris Kelly
+const BuildOrder & StrategyManager::changeStrat(std::string strat) const
+{
+    auto strategy = m_strategies.find(strat);
+    BOT_ASSERT(strategy != m_strategies.end(), "Couldn't find Strategy corresponding to strategy name: %s", m_bot.Config().StrategyName.c_str());
+    return (*strategy).second.m_buildOrder;
+}
+
+//DECIDE WHAT STRAT TO ADD TO BUILD ORDER HERE
+void StrategyManager::emptyQueue() const{
+    m_bot.GameCom().ProMan().addToStrat("Terran_Reaper");
+    return;
+}
+
+//...........................................
+
+//Chris Kelly
 
 bool StrategyManager::scoutConditionIsMet() const
 {

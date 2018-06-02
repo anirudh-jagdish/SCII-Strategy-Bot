@@ -13,19 +13,39 @@ ProductionManager::ProductionManager(CCBot & bot)
 void ProductionManager::setBuildOrder(const BuildOrder & buildOrder)
 {
     m_queue.clearAll();
-
     for (size_t i(0); i<buildOrder.size(); ++i)
     {
         m_queue.queueAsLowestPriority(buildOrder[i], true);
     }
 }
 
+//Chris Kelly
+void ProductionManager::addToBuildOrder(const BuildOrder & buildOrder)
+{
+    for (size_t i(0); i<buildOrder.size(); ++i)
+    {
+        m_queue.queueAsLowestPriority(buildOrder[i], true);
+    }
+}
+//Chris Kelly
 
 void ProductionManager::onStart()
 {
     m_buildingManager.onStart();
     setBuildOrder(m_bot.Strategy().getOpeningBookBuildOrder());
 }
+
+//Chris Kelly
+void ProductionManager::changeStrat(std::string strat)
+{
+    setBuildOrder(m_bot.Strategy().changeStrat(strat));
+}
+
+void ProductionManager::addToStrat(std::string strat)
+{
+    addToBuildOrder(m_bot.Strategy().changeStrat(strat));
+}
+//Chris Kelly
 
 void ProductionManager::onFrame()
 {
@@ -51,6 +71,8 @@ void ProductionManager::manageBuildOrderQueue()
     // if there is nothing in the queue, oh well
     if (m_queue.isEmpty())
     {
+        printf("proManager: EmptyQueue\n");
+        m_bot.Strategy().emptyQueue();
         return;
     }
 

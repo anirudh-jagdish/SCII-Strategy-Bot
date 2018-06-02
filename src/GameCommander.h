@@ -33,6 +33,8 @@ public:
     void onStart();
     void onFrame();
 
+    ProductionManager & ProMan(); //Chris Kelly
+
     void handleUnitAssignments();
     void setValidUnits();
     void setScoutUnits();

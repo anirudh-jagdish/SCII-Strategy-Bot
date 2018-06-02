@@ -130,6 +130,13 @@ const StrategyManager & CCBot::Strategy() const
     return m_strategy;
 }
 
+//Chris Kelly
+GameCommander & CCBot::GameCom()
+{
+    return m_gameCommander;
+}
+//Chris Kelly
+
 const BaseLocationManager & CCBot::Bases() const
 {
     return m_bases;

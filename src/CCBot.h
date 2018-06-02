@@ -57,6 +57,7 @@ public:
     const MapTools & Map() const;
     const UnitInfoManager & UnitInfo() const;
     const StrategyManager & Strategy() const;
+    GameCommander & GameCom(); //Chris Kelly
     const TypeData & Data(const UnitType & type) const;
     const TypeData & Data(const CCUpgrade & type) const;
     const TypeData & Data(const MetaType & type) const;
