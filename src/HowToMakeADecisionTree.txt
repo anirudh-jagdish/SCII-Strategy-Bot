@@ -1,0 +1,4 @@
+Step 1: Add Strategy to BotConfig.txt
+Step 2: Build Decision Tree that switches between Strategies in the onFrame() function in StrategyManager.cpp
+    - Can add booleans to tree, must add the boolean to both the StrategyManager.cpp and StrategyManager.h
+Step 3: Set Strategy to be applied in the case of an empty queue in emptyQueue() function in StrategyManager.cpp
