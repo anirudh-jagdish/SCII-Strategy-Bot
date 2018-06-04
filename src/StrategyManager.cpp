@@ -27,7 +27,8 @@ StrategyManager::StrategyManager(CCBot & bot)
     
     //Chris Kelly
 
-    //GIVE BOOLEANS INITIAL VALUES HERE
+    //GIVE BOOLEANS INITIAL VALUES HERE 
+    //     -- Be sure to declare variables in StrategyManager.h in the StrategyManager class
     , m_changedToMarine     (false)
     , m_changedToReaper     (false)
     , m_setRefineries       (false)
