@@ -17,7 +17,7 @@
     "SC2API" :
     {
         "BotRace"                   : "Terran",
-        "EnemyDifficulty"           : 7,
+        "EnemyDifficulty"           : 8,
         "EnemyRace"                 : "Random",
         "MapFile"                   : "AbyssalReefLE.SC2Map",
         "StepSize"                  : 1

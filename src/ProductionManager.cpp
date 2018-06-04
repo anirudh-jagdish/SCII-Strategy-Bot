@@ -71,7 +71,6 @@ void ProductionManager::manageBuildOrderQueue()
     // if there is nothing in the queue, oh well
     if (m_queue.isEmpty())
     {
-        printf("proManager: EmptyQueue\n");
         m_bot.Strategy().emptyQueue();
         return;
     }
