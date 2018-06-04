@@ -33,7 +33,8 @@ class StrategyManager
     int                             m_totalGamesPlayed;
     const BuildOrder                m_emptyBuildOrder;
     //Chris Kelly
-
+    std::string m_refillWith;
+    
     //ADD BOOLEANS HERE
     bool  m_changedToMarine;
     bool  m_changedToReaper;

@@ -26,12 +26,15 @@ StrategyManager::StrategyManager(CCBot & bot)
     : m_bot(bot)
     
     //Chris Kelly
+    , m_refillWith          ("")
 
     //GIVE BOOLEANS INITIAL VALUES HERE 
     //     -- Be sure to declare variables in StrategyManager.h in the StrategyManager class
     , m_changedToMarine     (false)
     , m_changedToReaper     (false)
     , m_setRefineries       (false)
+
+    
     //................................
 
     //Chris Kelly
@@ -52,6 +55,7 @@ void StrategyManager::onFrame()
     if( m_bot.UnitInfo().getUnitTypeCount(0, UnitType::GetUnitTypeFromName("SupplyDepot", m_bot)) > 0 && !m_changedToMarine){
         m_changedToMarine = true;
         m_bot.GameCom().ProMan().changeStrat("Terran_Barack_Marine");
+        m_refillWith = "Terran_Reaper";
     }
 
     if( m_bot.UnitInfo().getUnitTypeCount(0, UnitType::GetUnitTypeFromName("Marine", m_bot)) > 10 && !m_setRefineries){
@@ -61,7 +65,7 @@ void StrategyManager::onFrame()
 
     if( m_bot.UnitInfo().getUnitTypeCount(0, UnitType::GetUnitTypeFromName("Refinery", m_bot)) > 2 && !m_changedToReaper){
         m_changedToReaper = true;
-        m_bot.GameCom().ProMan().changeStrat("Terran_Barack_Reaper");
+        m_bot.GameCom().ProMan().changeStrat("Terran_Reaper");
     }
 
     //......................
@@ -91,13 +95,12 @@ const BuildOrder & StrategyManager::changeStrat(std::string strat) const
     return (*strategy).second.m_buildOrder;
 }
 
-//DECIDE WHAT STRAT TO ADD TO BUILD ORDER HERE
 void StrategyManager::emptyQueue() const{
-    m_bot.GameCom().ProMan().addToStrat("Terran_Reaper");
+    if (m_refillWith != ""){
+        m_bot.GameCom().ProMan().addToStrat(m_refillWith);
+    }
     return;
 }
-
-//...........................................
 
 //Chris Kelly
 
